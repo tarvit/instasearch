@@ -1,0 +1,3 @@
+= form_for :instagram, url: search_query_path, method: :post do |f|
+  = f.text_field :query, value: search_string
+  = f.submit 'Search'
