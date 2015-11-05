@@ -11,7 +11,7 @@ module InstagramDirectAPI
       max_id = nil
       response = fetch_week_items(max_id)
 
-      while !response.items.empty?
+      while response.next_max_id && !response.items.empty?
         result << response.items
         max_id = response.next_max_id
         response = fetch_week_items(max_id)

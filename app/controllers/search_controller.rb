@@ -8,11 +8,4 @@ class SearchController < ApplicationController
     @users = instagram_client.search(:users, @search_string).data
   end
 
-  def user
-    @user = instagram_client.user(params[:id]).data
-    last_week_media = InstagramDirectAPI::LastWeekMedia.new(instagram_client, params[:id]).fetch
-    @likes_top = InstagramMediaTop::LikesTop.new(last_week_media).list
-    @comments_top = InstagramMediaTop::CommentsTop.new(last_week_media).list
-  end
-
 end

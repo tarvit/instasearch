@@ -1,15 +1,16 @@
 module InstagramMediaTop
   class Base
-    attr_reader :media_items
+    attr_reader :media_items, :limit
 
-    def initialize(media_items)
+    def initialize(media_items, limit)
       @media_items = media_items
+      @limit = limit
     end
 
     def list
-      @media_items.sort_by do |item|
+      @media_items.sort_by{ |item|
         score(item)
-      end
+      }[0..(limit-1)]
     end
 
     protected
