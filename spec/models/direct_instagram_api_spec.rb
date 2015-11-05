@@ -11,7 +11,7 @@ describe InstagramDirectAPI::Client do
     it 'should search tags' do
       url = 'https://api.instagram.com/v1/tags/search?q=awesome&client_id=fake_cliend_id'
       expect(@client).to receive(:request).with(url)
-      expect(@client.search(:tags, 'awesome'))
+      @client.search(:tags, 'awesome')
     end
 
   end
@@ -21,17 +21,27 @@ describe InstagramDirectAPI::Client do
     it 'should search users' do
       url = 'https://api.instagram.com/v1/users/search?q=john&client_id=fake_cliend_id'
       expect(@client).to receive(:request).with(url)
-      expect(@client.search(:users, 'john'))
+      @client.search(:users, 'john')
     end
 
   end
 
   context 'User Info' do
 
-    it 'should get basic user info' do
+    it 'should query basic user info' do
       url = 'https://api.instagram.com/v1/users/neo/?client_id=fake_cliend_id'
       expect(@client).to receive(:request).with(url)
-      expect(@client.user('neo'))
+      @client.user('neo')
+    end
+
+  end
+
+  context 'User Media' do
+
+    it 'should query user media' do
+      url = 'https://api.instagram.com/v1/users/neo/media/recent/?client_id=fake_cliend_id&max_id=10'
+      expect(@client).to receive(:request).with(url)
+      @client.media('neo', { max_id: 10 })
     end
 
   end
