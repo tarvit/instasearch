@@ -1,10 +1,10 @@
-#likes-top
+#likes-top flex="50"
   h1 Likes Top
   .media-items
     - @likes_top.each do |item|
       = render partial: 'search/partials/media', locals: { item: item }
 
-#comments-top
+#comments-top flex="50"
   h1 Comments Top
   .media-items
     - @comments_top.each do |item|

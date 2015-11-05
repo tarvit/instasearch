@@ -1,11 +1,9 @@
-.user
-  p
-    img src=@user.profile_picture
-    p
+#user-info flex=''
+  md-list-item.md-3-line.user
+    img.md-avatar alt=@user.username src=@user.profile_picture
+    .md-list-item-text layout="column"
       span.name= @user.username
-    p
-      span.media_count= @user.full_name
-    p
-      span.total_folowers_count= @user.counts.followed_by
-
-= render partial: 'shared/top'
+        span.media_count= @user.full_name
+        span.total_folowers_count= @user.counts.followed_by
+md-content flex="" layout="row"
+  = render partial: 'shared/top'

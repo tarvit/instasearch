@@ -49,19 +49,30 @@ body {
     h1 {
       padding-left: 10px;
     }
+  }
 
-    #tags-results {
+  #user-info, #tag-info {
 
-      .name {
-        font-size: 30px;
-      }
+    margin: 10px;
+    h1 {
+      padding-left: 10px;
+    }
+    .md-avatar {
+      width: 100px;
+      height: 100px;
     }
 
-    .result {
-      background: #F7F7F7;
-      margin: 5px;
-      padding: 20px;
+    .tag-name {
+      font-size: 40px;
+      color: #0086B3;
+    }
+  }
 
+  .top-item {
+    margin: 5px;
+    padding: 5px;
+    img {
+      width: 100px;
     }
   }
 

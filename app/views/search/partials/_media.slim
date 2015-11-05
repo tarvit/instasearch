@@ -1,10 +1,10 @@
-.media
-  p
-    .image
-      img src=item.images.low_resolution.url
+md-list-item.md-3-line.top-item.md-whiteframe-z2
+  img src=item.images.low_resolution.url
+  .md-list-item-text layout="column"
     .comments
       | Commented by #{ item.comments.count }
     .likes
       | Liked by #{ item.likes.count }
     .created_at
-      | Create at #{ format_time(item.created_time) }
+      | Created at #{ format_time(item.created_time) }
+

@@ -1,7 +1,9 @@
-#tag
+#tag-info
   p
-    span.name= @tag.name
+    span.tag-name
+      | ##{ @tag.name }
   p
-    span.count= @tag.media_count
-
-= render partial: 'shared/top'
+    span.count
+      | Tagged by #{ @tag.media_count }
+  md-content flex="" layout="row"
+    = render partial: 'shared/top'

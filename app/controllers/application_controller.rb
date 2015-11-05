@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
     action.call
   rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ECONNREFUSED, EOFError,
       Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError => ex
-
     show_error(ex.message)
   end
 
