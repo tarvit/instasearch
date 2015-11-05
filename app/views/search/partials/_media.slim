@@ -1,0 +1,10 @@
+.media
+  p
+    .image
+      img src=item.images.standard_resolution.url
+    .comments
+      | Commented by #{ item.comments.count }
+    .likes
+      | Liked by #{ item.likes.count }
+    .created_at
+      | Create at #{ format_time(item.created_time) }

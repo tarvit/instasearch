@@ -10,6 +10,7 @@ class SearchController < ApplicationController
 
   def user
     @user = instagram_client.user(params[:id]).data
+    @last_week_media = InstagramDirectAPI::LastWeekMedia.new(instagram_client, params[:id]).fetch
   end
 
 end

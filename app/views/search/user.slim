@@ -7,3 +7,8 @@
       span.media_count= @user.full_name
     p
       span.total_folowers_count= @user.counts.followed_by
+
+  .media-items
+    - @last_week_media.each do |item|
+      = render partial: 'search/partials/media', locals: { item: item }
+
