@@ -1,1 +1,8 @@
-span.name=  tag._hash
+.tag
+  .user
+    = link_to tag_path(tag.name) do
+      p
+        span.name=  tag.name
+      p
+        span.count
+          | #{ tag.media_count.to_i } posts

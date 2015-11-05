@@ -11,13 +11,16 @@ module InstagramDirectAPI
         result = []
         max_id = nil
         response = fetch_week_items(max_id)
-        while response.next_max_id && !response.items.empty?
-          result << response.items
+        requests_count = 1
+
+        while response.next_max_id && !response.items.empty? && (requests_count <= request_count_limit)
+          result.push(*response.items)
           max_id = response.next_max_id
           response = fetch_week_items(max_id)
+          requests_count += 1
         end
 
-        result.flatten(1)
+        result
       end
 
       def week_edge
@@ -45,6 +48,11 @@ module InstagramDirectAPI
           media_item.created_time.to_i > week_edge
         end
       end
+
+      def request_count_limit
+        10
+      end
+
     end
   end
 end

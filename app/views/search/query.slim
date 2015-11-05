@@ -1,9 +1,13 @@
 = render partial: 'search/partials/search_form', locals: { search_string: @search_string }
 
+#tags-results
+  h1
+    | Tags(#{ @tags.count })
+  - @tags.each do |tag|
+    = render partial: 'search/partials/tag', locals: { tag: tag }
 
-- @tags.each do |tag|
-  = render partial: 'search/partials/tag', locals: { tag: tag }
-
-- @users.each do |user|
-  = render partial: 'search/partials/user', locals: { user: user }
-
+#users-results
+  h1
+    | Users(#{ @users.count })
+  - @users.each do |user|
+    = render partial: 'search/partials/user', locals: { user: user }

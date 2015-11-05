@@ -7,7 +7,7 @@ module InstagramDirectAPI
     end
 
     def search(object_type, query)
-      request(search_url(object_type, query))
+      request search_url(object_type, query)
     end
 
     def user(id)
@@ -15,12 +15,20 @@ module InstagramDirectAPI
     end
 
     def user_media(id, opts)
-      request media_url(id, opts)
+      request user_media_url(id, opts)
+    end
+
+    def tag(name)
+      request tag_url(name)
+    end
+
+    def tag_media(id, opts)
+      request tag_media_url(id, opts)
     end
 
     protected
 
-    def media_url(id, opts)
+    def user_media_url(id, opts)
       instagram_url("users/#{id}/media/recent", opts)
     end
 
@@ -28,11 +36,20 @@ module InstagramDirectAPI
       instagram_url("users/#{id}")
     end
 
+    def tag_url(name)
+      instagram_url("tags/#{URI.encode(name)}")
+    end
+
+    def tag_media_url(name, opts)
+      instagram_url("tags/#{URI.encode(name)}/media/recent", opts)
+    end
+
     def search_url(object_type, query)
       instagram_url("#{object_type}/search", q: query)
     end
 
     def request(url)
+      puts url
       uri = URI(url)
       raw_response = Net::HTTP.get(uri)
       response(raw_response)

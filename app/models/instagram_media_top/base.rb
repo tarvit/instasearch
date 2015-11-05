@@ -10,7 +10,7 @@ module InstagramMediaTop
 
     def list
       @media_items.sort_by{ |item|
-        score(item)
+        -score(item)
       }[0..(limit-1)]
     end
 

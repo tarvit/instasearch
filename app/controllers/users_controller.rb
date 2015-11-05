@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     http_request_call do
-      user_response = instagram_client.user(params[:id])
+      user_response = instagram_client.user(user_id)
       if success?(user_response)
         show_tops(user_response)
       else
@@ -15,9 +15,13 @@ class UsersController < ApplicationController
 
   def show_tops(user_response)
     @user = user_response.data
-    last_week_media = InstagramDirectAPI::LastWeekMedia::ForUser.new(instagram_client, params[:id]).fetch
+    last_week_media = InstagramDirectAPI::LastWeekMedia::ForUser.new(instagram_client, user_id).fetch
     @likes_top = InstagramMediaTop::LikesTop.new(last_week_media).list
     @comments_top = InstagramMediaTop::CommentsTop.new(last_week_media).list
+  end
+
+  def user_id
+    params[:id]
   end
 
 end
