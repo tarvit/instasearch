@@ -1,0 +1,8 @@
+.user
+  = link_to search_user_path(id: user.id) do
+    p
+      img src=user.profile_picture
+      p
+        span.name=user.username
+      p
+        span.media_count= user.full_name

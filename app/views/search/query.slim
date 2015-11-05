@@ -1,1 +1,5 @@
 = render partial: 'search/partials/search_form', locals: { search_string: @search_string }
+
+- @users.each do |user|
+  = render partial: 'search/partials/user', locals: { user: user }
+
