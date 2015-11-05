@@ -8,7 +8,14 @@
     p
       span.total_folowers_count= @user.counts.followed_by
 
+#likes-top
+  h1 Likes Top
   .media-items
-    - @last_week_media.each do |item|
+    - @likes_top.each do |item|
       = render partial: 'search/partials/media', locals: { item: item }
-
+      
+#comments-top
+  h1 Comments Top
+  .media-items
+    - @comments_top.each do |item|
+      = render partial: 'search/partials/media', locals: {item: item}
