@@ -35,10 +35,17 @@ body {
         padding: 5px;
         text-decoration: none;
         font-size: 40px;
-        color: #5759DA;
+        .name {
+          color: #5759DA;
+          font-size: 24px;
+        }
         &:hover {
           background: rgba(250, 248, 85, 0.25);
         }
+      }
+      .md-avatar {
+        width: 55px;
+        height: 55px;
       }
     }
 
@@ -68,6 +75,12 @@ body {
     }
   }
 
+  #likes-top, #comments-top {
+    .md-list-item-text {
+      padding-left: 10px;
+    }
+  }
+
   .top-item {
     margin: 5px;
     padding: 5px;
@@ -75,5 +88,4 @@ body {
       width: 100px;
     }
   }
-
 }
