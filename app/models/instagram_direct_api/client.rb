@@ -34,7 +34,6 @@ module InstagramDirectAPI
 
     def request(url)
       uri = URI(url)
-      puts uri
       raw_response = Net::HTTP.get(uri)
       response(raw_response)
     end
