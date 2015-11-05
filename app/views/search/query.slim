@@ -1,13 +1,16 @@
-= render partial: 'search/partials/search_form', locals: { search_string: @search_string }
-
-#tags-results
-  h1
-    | Tags(#{ @tags.count })
-  - @tags.each do |tag|
-    = render partial: 'search/partials/tag', locals: { tag: tag }
-
-#users-results
-  h1
-    | Users(#{ @users.count })
-  - @users.each do |user|
-    = render partial: 'search/partials/user', locals: { user: user }
+#search flex=''
+  = render partial: 'search/partials/search_form', locals: { search_string: @search_string }
+  md-content
+    #results flex='' layout="row"
+      #users-results flex='50'
+        h1
+          | Users(#{ @users.count })
+        md-list
+          - @users.each do |user|
+            = render partial: 'search/partials/user', locals: { user: user }
+      #tags-results flex='50'
+        h1
+          | Tags(#{ @tags.count })
+        md-list
+          - @tags.each do |tag|
+            = render partial: 'search/partials/tag', locals: {tag: tag}

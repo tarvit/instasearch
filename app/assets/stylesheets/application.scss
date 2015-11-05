@@ -1,15 +1,68 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *= require angular-material
- *= require_tree .
- *= require_self
- */
+//= require angular-material
+//= require_tree .
+//= require_self
+body {
+  min-width: 1000px;
+}
+
+#instasearch {
+  padding: 10px;
+
+  #footer {
+    padding: 15px;
+    text-align: center;
+  }
+
+  #content {
+    padding: 10px;
+  }
+
+  #search {
+    #search_query{
+      font-size: 40px;
+    }
+
+    #search_label {
+      font-size: 40px;
+      margin-bottom: -15px;
+    }
+  }
+
+  #results {
+
+    #users-results, #tags-results {
+      a {
+        padding: 5px;
+        text-decoration: none;
+        font-size: 40px;
+        color: #5759DA;
+        &:hover {
+          background: rgba(250, 248, 85, 0.25);
+        }
+      }
+    }
+
+    #users-results {
+      border-right: 1px solid #DEDEDE;
+    }
+
+    h1 {
+      padding-left: 10px;
+    }
+
+    #tags-results {
+
+      .name {
+        font-size: 30px;
+      }
+    }
+
+    .result {
+      background: #F7F7F7;
+      margin: 5px;
+      padding: 20px;
+
+    }
+  }
+
+}

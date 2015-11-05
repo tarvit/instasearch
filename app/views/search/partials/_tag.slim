@@ -1,8 +1,17 @@
-.tag
+md-list-item.md-3-line.tag
+  .md-list-item-text layout="column"
+    = link_to tag_path(tag.name) do
+      h3.name
+        | ##{ tag.name }
+      h4.media_count
+        | #{ tag.media_count.to_i } posts
+md-divider
+
+/.tag
   .user
     = link_to tag_path(tag.name) do
       p
-        span.name=  tag.name
+        span.name=
       p
         span.count
           | #{ tag.media_count.to_i } posts

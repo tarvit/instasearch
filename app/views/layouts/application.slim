@@ -1,0 +1,20 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    title InstaSearch
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    link href="/fonts/icons_font.css" rel="stylesheet"
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1"
+  body
+    #instasearch ng-controller='RootCtrl'
+      #container
+        header#header
+          = render partial: 'shared/header'
+        section#content.md-whiteframe-z2 flex="" layout="row" ng-app="InstaSearch"
+          md-content#main-content ui-view="content" flex=""
+            = yield
+        footer#footer
+          = render partial: 'shared/footer'

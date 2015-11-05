@@ -1,8 +1,7 @@
-.user
-  = link_to user_path(id: user.id) do
-    p
-      img src=user.profile_picture
-      p
-        span.name=user.username
-      p
-        span.media_count= user.full_name
+md-list-item.md-3-line.user
+  img.md-avatar alt=user.username src=user.profile_picture
+  .md-list-item-text layout="column"
+    = link_to user_path(id: user.id) do
+      h3.name=user.username
+      h4.media_count= user.full_name
+md-divider
