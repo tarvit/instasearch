@@ -1,5 +1,6 @@
 module InstagramDirectAPI
   class Client
+    require 'net/http'
     attr_reader :client_id
 
     def initialize(client_id)
@@ -49,7 +50,6 @@ module InstagramDirectAPI
     end
 
     def request(url)
-      puts url
       uri = URI(url)
       raw_response = Net::HTTP.get(uri)
       response(raw_response)
