@@ -41,7 +41,7 @@ describe InstagramDirectAPI::Client do
     it 'should query user media' do
       url = 'https://api.instagram.com/v1/users/neo/media/recent?client_id=fake_client_id&max_id=10'
       expect(@client).to receive(:request).with(url)
-      @client.media('neo', { max_id: 10 })
+      @client.user_media('neo', { max_id: 10 })
     end
 
   end

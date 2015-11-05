@@ -5,7 +5,7 @@ gem 'rails', '4.2.4'
 gem 'slim'
 gem 'kaminari'
 gem 'jbuilder', '~> 2.0'
-gem 'sqlite3'
+#gem 'pg'
 
 # Client-side
 gem 'sass-rails', '~> 5.0'
