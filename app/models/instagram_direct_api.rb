@@ -21,16 +21,15 @@ module InstagramDirectAPI
     protected
 
     def media_url(id, opts)
-      "https://api.instagram.com/v1/users/#{id}/media/recent/?client_id=#{ client_id }#{ options(opts) }"
+      instagram_url("users/#{id}/media/recent", opts)
     end
 
     def user_url(id)
-      "https://api.instagram.com/v1/users/#{id}/?client_id=#{client_id}"
+      instagram_url("users/#{id}")
     end
 
     def search_url(object_type, query)
-      q = URI.encode(query)
-      "https://api.instagram.com/v1/#{object_type}/search?q=#{q}&client_id=#{client_id}"
+      instagram_url("#{object_type}/search", q: query)
     end
 
     def request(url)
@@ -45,9 +44,14 @@ module InstagramDirectAPI
     end
 
     def options(opts)
+      return nil if opts.empty?
       ?& + opts.to_a.map{ |(k, v)|
-        [ k, v ]*?=
+        [ k, URI.encode(v.to_s) ]*?=
       }.join(?&)
+    end
+
+    def instagram_url(action, opts={})
+      "https://api.instagram.com/v1/#{ action }?client_id=#{ client_id }#{ options(opts) }"
     end
 
   end
