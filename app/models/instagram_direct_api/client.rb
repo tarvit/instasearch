@@ -70,6 +70,5 @@ module InstagramDirectAPI
     def instagram_url(action, opts={})
       "https://api.instagram.com/v1/#{ action }?client_id=#{ client_id }#{ options(opts) }"
     end
-
   end
 end
