@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show_tops(user_response)
     @user = user_response.data
-    last_week_media = InstagramDirectAPI::LastWeekMedia.new(instagram_client, params[:id]).fetch
+    last_week_media = InstagramDirectAPI::LastWeekMedia::ForUser.new(instagram_client, params[:id]).fetch
     @likes_top = InstagramMediaTop::LikesTop.new(last_week_media).list
     @comments_top = InstagramMediaTop::CommentsTop.new(last_week_media).list
   end

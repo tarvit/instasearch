@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :search do
     post :query
-    get :query, to: :index
+    get :query, action: :index
   end
 
   resources :users, only: :show

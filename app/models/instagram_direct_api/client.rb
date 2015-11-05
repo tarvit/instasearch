@@ -14,7 +14,7 @@ module InstagramDirectAPI
       request user_url(id)
     end
 
-    def media(id, opts)
+    def user_media(id, opts)
       request media_url(id, opts)
     end
 
