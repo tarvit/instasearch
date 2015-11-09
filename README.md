@@ -12,6 +12,7 @@ It allows User to use the following features:
 
 ## Architecture
 There are 2 central modules `InstagramDirectAPI` and `InstagramMediaTop` containing all core components. The components described below.
+
 `InstagramDirectAPI`
   * `Client` - performs HTTP requests to instagram API, handles all needed API calls.
   * `LastWeekMedia`
